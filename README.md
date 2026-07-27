@@ -43,4 +43,4 @@
 - Visual Studio 或 Build Tools，包含 MSVC x64 C++ 工具链和 Windows SDK。
 - 约 6 GB 可用磁盘空间，用于下载归档、解压和安装 ASR 与标点模型组合。
 
-仓库已经包含构建所需的头文件、导入库、运行时 DLL 和 bzip2 源码。ASR、VAD 与标点模型均由 Settings 内的模型下载器安装，不随程序或安装包分发。
+ASR、VAD 与标点模型均由 Settings 内的模型下载器安装，不随程序或安装包分发。
