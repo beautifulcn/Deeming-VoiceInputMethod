@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 100 300 300" width="100%" height="100%">
+  <defs>
+    <!-- 高对比度、高饱和度的霓虹发光渐变 -->
+    <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9900FF" />  <!-- 极光紫 (更深邃、饱和) -->
+      <stop offset="50%" stop-color="#0062FF" />  <!-- 电光蓝 (极度纯净) -->
+      <stop offset="100%" stop-color="#00FFFF" /> <!-- 荧光青 (极度高亮、刺透感) -->
+    </linearGradient>
+  </defs>
+
+  <path d="M 380 220 A 130 130 0 0 0 250 120 L 160 120 A 40 40 0 0 0 120 160 L 120 220 Q 120 250 150 250 L 165 230 L 190 325 L 220 175 L 250 325 L 280 175 L 310 325 L 335 230 L 350 250 Q 380 250 380 280 A 130 130 0 0 1 250 380 L 160 380 A 40 40 0 0 1 120 340 L 120 280" 
+    fill="none" 
+    stroke="url(#wave-gradient)" 
+    stroke-width="20" 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+  />
+</svg>

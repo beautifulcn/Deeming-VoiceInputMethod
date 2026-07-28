@@ -1,0 +1,62 @@
+谛明 Deeming 第三方软件与模型声明
+
+本文件仅说明谛明 Deeming 使用、链接、随附或允许下载的第三方材料。
+这些材料仍由各自权利人所有，并适用各自的许可证。第三方许可证不适用于
+谛明 Deeming 中由许可方拥有权利的代码和其他材料。
+
+1. Apache License 2.0 材料
+
+以下材料依据 Apache License 2.0 提供。许可证全文见
+licenses\Apache-2.0.txt。
+
+- sherpa-onnx
+  Copyright The sherpa-onnx Authors
+  https://github.com/k2-fsa/sherpa-onnx
+
+- kaldi-native-fbank
+  Copyright The kaldi-native-fbank Authors
+  https://github.com/csukuangfj/kaldi-native-fbank
+
+- FireRedASR / FireRedASR2 模型
+  Copyright FireRedTeam and respective contributors
+  https://github.com/FireRedTeam/FireRedASR
+
+- FireRedVAD 及由模型下载功能获取的 ONNX 模型
+  Copyright FireRedTeam and respective contributors
+  https://github.com/FireRedTeam/FireRedVAD
+
+- Streaming Paraformer bilingual zh-en 模型
+  下载仓库标记的许可证：Apache-2.0
+
+- CT-Transformer Punctuation 模型
+  下载仓库标记的许可证：Apache-2.0
+
+模型下载地址和仓库元数据可能随版本更新。下载功能仅提供获取便利；用户仍应
+检查下载页面中的最新模型卡、版权声明和使用限制。
+
+2. MIT License 材料
+
+- ONNX Runtime
+  Copyright (c) Microsoft Corporation
+  许可证全文见 licenses\ONNX-Runtime-MIT.txt。
+  https://github.com/microsoft/onnxruntime
+
+- JSON for Modern C++ (nlohmann/json)
+  Copyright (c) 2013-2022 Niels Lohmann
+  许可证全文见 licenses\nlohmann-json-MIT.txt。
+  https://github.com/nlohmann/json
+
+3. bzip2/libbzip2
+
+bzip2/libbzip2 Copyright (C) 1996-2019 Julian R Seward。
+许可证全文见 licenses\bzip2-LICENSE.txt。
+https://sourceware.org/bzip2/
+
+4. 第三方网络服务
+
+OpenRouter、Mistral、Hugging Face 以及用户自行配置的其他服务不是本软件的一部分，
+也不由许可方运营。使用这些服务时，应另行遵守相应服务商的服务条款、隐私政策、
+计费规则和内容政策。
+
+上述第三方材料均由相应权利人按其许可证“现状”提供。完整免责声明和责任限制
+以随附的第三方许可证为准。
