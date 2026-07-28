@@ -1,0 +1,41 @@
+谛明 Deeming 安全与隐私说明
+
+谛明高度重视用户个人安全与隐私的全面保护。
+
+1. 整洁安装与卸载
+
+安装程序仅部署程序运行所必需的文件、用户主动选择的快捷方式，以及 Windows“程序和功能”正常卸载所必需的登记信息；不会向系统目录或注册表写入与程序运行、维护和卸载无关的冗余资源或残留信息。卸载程序会移除由安装器部署的文件、快捷方式和卸载登记。
+
+为避免未经确认删除用户数据，卸载程序默认保留程序运行后由用户生成的配置与本地日志（%APPDATA%\Deeming）。交互式卸载提供默认不勾选的“同时删除当前用户的本地数据”选项；用户勾选并确认后，卸载程序会永久清理这些数据以及安装目录内由谛明生成的兼容配置路径，并在安装目录没有其他内容时将其一并移除。
+
+用户主动下载到自选目录的模型不会随上述选项删除，避免对用户指定的外部目录进行不安全的递归清理。需要彻底清理时，用户可在确认不再需要模型后手动删除对应目录。静默卸载同样默认保留用户数据。
+
+2. 无遥测与本地数据
+
+程序不包含任何遥测功能，亦不提供收集个人隐私的在线服务。语音识别在本机使用本地模型完成；本地运行日志不会由谛明自动上传。完整 LLM 审计日志默认关闭，只有用户显式开启时才会保存在本机，且可能包含口述文本或屏幕上下文。
+
+3. 可选网络功能的边界
+
+网络访问仅发生在用户主动下载模型，或用户自行配置并显式启用第三方 LLM 文本处理时。模型下载会连接项目列明的第三方模型存储服务；LLM 功能会把完成请求所需的文本及用户启用的有界上下文发送给用户选择的 Provider，并受该第三方的隐私政策约束。关闭这些可选能力不会影响本地语音识别。
+
+----------------------------------------------------------------
+
+Deeming Security and Privacy Notice
+
+Deeming places a high priority on protecting each user's personal safety and privacy.
+
+1. Clean installation and uninstallation
+
+Setup installs only the files required to run the application, shortcuts explicitly selected by the user, and the Windows registration required for normal maintenance and uninstallation. It does not write unrelated or redundant resources to system directories or the registry. The uninstaller removes files, shortcuts, and uninstall registration created by Setup.
+
+To prevent unconfirmed loss of user data, uninstallation preserves user-created configuration and local logs (%APPDATA%\Deeming) by default. Interactive uninstallation provides an unchecked "Also delete local data for the current user" option. When the user selects and confirms it, Uninstall permanently removes that data, known compatibility configuration paths created by Deeming inside the installation directory, and the installation directory itself when no other content remains.
+
+Models downloaded to a user-selected directory are not removed by this option, avoiding unsafe recursive deletion of an external directory selected by the user. Users may delete the model directory manually after confirming that it is no longer needed. Silent uninstallation also preserves user data by default.
+
+2. No telemetry and local data
+
+The application contains no telemetry, and the project provides no online service that collects personal or private data. Speech recognition uses local models on the user's computer, and Deeming does not automatically upload local logs. Full LLM audit logging is disabled by default; when explicitly enabled, it remains local but may contain dictated text or on-screen context.
+
+3. Boundaries of optional network features
+
+Network access occurs only when the user actively downloads a model, or configures and explicitly enables third-party LLM text processing. Model downloads connect to the third-party model storage identified by the project. LLM processing sends the text required for a request, together with any bounded context enabled by the user, to the Provider selected by the user and is subject to that third party's privacy policy. Disabling these optional features does not affect local speech recognition.
