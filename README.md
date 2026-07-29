@@ -6,29 +6,50 @@
 
 <p align="center">谛听所思，明达所向。Deem Your Thoughts, Drive Your Way.</p>
 
-谛明是面向 Windows 7 及以上 x64 系统的本地优先智能语音输入工具。程序常驻系统托盘，按住快捷键即可录音，松开后在本机完成语音识别，并把结果安全地送回录音开始时绑定的输入位置。
+<p align="center"><strong>面向 Windows 的本地优先语音输入工具：按住说话，松开输入。</strong></p>
 
-当前稳定版本：`v2.0.0`
+<p align="center">
+  <a href="https://github.com/beautifulcn/Deeming-VoiceInputMethod/releases/download/v2.0.0/Deeming-Setup-v2.0.0-x64.exe">下载安装包</a>
+  · <a href="#安装与首次使用">安装与使用</a>
+  · <a href="doc/deeming_optimal_configuration_guide.md">配置指南</a>
+  · <a href="PRIVACY.txt">隐私说明</a>
+</p>
 
-## 产品优势
+谛明常驻系统托盘，使用本地模型完成语音识别，并将结果送回录音开始时绑定的输入位置。它支持离线与流式 ASR、本地 VAD 和自动标点；第三方 LLM 润色及焦点上下文均为可选能力，默认关闭。
 
-- **本地优先，隐私边界清晰**：语音识别在本机运行，不包含遥测，也不会自动上传录音、识别文本或本地日志。模型下载和第三方 LLM 均由用户主动配置或触发。
-- **原生轻量，兼容范围广**：采用 C++ 与 Win32 原生实现，无需 Electron、浏览器内核或额外托管运行时；支持 Windows 7 及以上 x64 系统。
-- **离线与流式兼得**：支持 FireRedASR2 CTC/AED 离线识别，也支持 Streaming Paraformer 边录音边在本机解码。
-- **输入目标安全绑定**：录音开始时绑定窗口和输入位置，提交请求与投递文本前重新校验目标；焦点变化时取消投递，不会把内容转发到新的前台窗口。
-- **适应复杂输入环境**：针对原生编辑器、Chromium/Electron、Word 和微信等不同控件采用相应的文本投递与目标复验策略。
-- **稳定的音频链路**：优先使用 WASAPI Shared Mode，自动转换为 16 kHz、16-bit、单声道 PCM；初始化失败时回退到 `waveIn`。
-- **灵活的文本处理**：可以保持 ASR 原文、使用本地 CT-Transformer 自动标点，或显式启用第三方 LLM 进行纠错、润色和有界上下文感应。
-- **内置模型管理**：模型下载器支持断点续传、SHA-256 校验和原子安装，模型按需下载，不随安装包强制分发。
+**当前稳定版本：** `v2.0.0`　|　**支持系统：** Windows 7+ x64　|　**默认快捷键：** 长按 `CapsLock`
 
-## 核心功能
+## 下载
 
-- 默认长按 `CapsLock` 超过 300 ms 开始录音，松开后识别；短按仍保留系统大小写切换行为。
-- FireRed VAD 只裁剪录音首尾静音，保留自然的句中停顿。
-- 托盘图标和 Direct2D/DirectWrite HUD 显示“聆听中...”“识别中...”和可选的“润色中...”状态。
-- 在线流式会话失败时，可以使用已安装的正式离线模型回退识别。
-- LLM 纠错与上下文感应默认关闭，失败时回退到 ASR 原文。
-- API Key 使用 Windows DPAPI 加密后保存在当前 Windows 用户配置中。
+### [下载 Deeming-Setup-v2.0.0-x64.exe](https://github.com/beautifulcn/Deeming-VoiceInputMethod/releases/download/v2.0.0/Deeming-Setup-v2.0.0-x64.exe)
+
+[查看全部版本](https://github.com/beautifulcn/Deeming-VoiceInputMethod/releases) · [下载 SHA256SUMS.txt](https://github.com/beautifulcn/Deeming-VoiceInputMethod/releases/download/v2.0.0/SHA256SUMS.txt)
+
+| 项目 | 值 |
+| --- | --- |
+| 文件名 | `Deeming-Setup-v2.0.0-x64.exe` |
+| 文件大小 | 7,244,404 字节（约 6.9 MiB） |
+| SHA-256 | `77A8F142C0FA391886D05DEA0B00417CBFAC7415523419A3F0A0820A1BD5341F` |
+| 产品 / 文件版本 | `2.0.0` / `2.0.0.0` |
+| 支持系统 | Windows 7 或更高版本，x64 |
+
+在 PowerShell 中校验安装包：
+
+```powershell
+(Get-FileHash .\Deeming-Setup-v2.0.0-x64.exe -Algorithm SHA256).Hash
+```
+
+输出应与上表中的 SHA-256 完全一致。当前安装程序尚未使用代码签名证书，Windows 可能显示 SmartScreen 提示；运行前请确认下载地址并核对校验值。
+
+## 为什么选择谛明
+
+- **本地识别**：FireRedASR2 和 Streaming Paraformer 均在本机运行；安装模型后，无需联网即可完成语音识别。
+- **隐私可控**：不包含遥测，不会自动上传录音、识别文本或本地日志。网络仅用于用户主动下载模型或显式启用的第三方 LLM。
+- **按住即说**：默认长按 `CapsLock` 超过 300 ms 开始录音，松开后识别；短按仍正常切换大小写状态。
+- **安全投递**：录音开始时绑定窗口和输入位置，输出前再次校验；焦点改变时取消投递，避免文本误入其他窗口。
+- **按需增强**：可选择 FireRed VAD、本地 CT-Transformer 标点，以及第三方 LLM 纠错、润色和有界上下文感应。
+- **原生轻量**：使用 C++ 与 Win32 实现，无需 Electron 或浏览器内核，兼容 Windows 7 及以上 x64 系统。
+- **模型管理**：内置下载器支持断点续传、SHA-256 校验和原子安装；模型按需下载，不捆绑在安装包中。
 
 ## 工作流程
 
@@ -37,29 +58,6 @@
 3. **识别中**：松开快捷键后停止采集，完成本地识别和可选的首尾静音裁剪。
 4. **润色中**：只有显式选择 LLM 输出处理时，才会向用户配置的第三方 Provider 发送请求。
 5. **投递结果**：重新验证会话、窗口和输入焦点，验证通过后才把文本送回原输入位置。
-
-## 下载
-
-[下载 Deeming-Setup-v2.0.0-x64.exe](https://github.com/beautifulcn/Deeming-VoiceInputMethod/releases/download/v2.0.0/Deeming-Setup-v2.0.0-x64.exe)
-
-[查看全部版本](https://github.com/beautifulcn/Deeming-VoiceInputMethod/releases)
-
-| 项目 | 值 |
-| --- | --- |
-| 文件名 | `Deeming-Setup-v2.0.0-x64.exe` |
-| 文件大小 | 7,244,404 字节 |
-| SHA-256 | `77A8F142C0FA391886D05DEA0B00417CBFAC7415523419A3F0A0820A1BD5341F` |
-| 产品版本 | `2.0.0` |
-| 文件版本 | `2.0.0.0` |
-| 支持系统 | Windows 7 或更高版本，x64 |
-
-也可以下载同一版本的 [`SHA256SUMS.txt`](https://github.com/beautifulcn/Deeming-VoiceInputMethod/releases/download/v2.0.0/SHA256SUMS.txt) 后校验安装包：
-
-```powershell
-(Get-FileHash .\Deeming-Setup-v2.0.0-x64.exe -Algorithm SHA256).Hash
-```
-
-输出应与上表中的 SHA-256 完全一致。当前安装程序未使用代码签名证书，Windows 可能显示 SmartScreen 提示；运行前请确认下载地址并核对校验值。
 
 ## 系统要求
 
