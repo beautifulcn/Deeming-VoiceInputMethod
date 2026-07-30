@@ -8,39 +8,6 @@
 
 <p align="center"><strong>面向 Windows 的本地优先语音输入工具：按住说话，松开输入。</strong></p>
 
-<p align="center">
-  <a href="https://github.com/beautifulcn/Deeming-VoiceInputMethod/releases/download/v2.0.0/Deeming-Setup-v2.0.0-x64.exe">下载安装包</a>
-  · <a href="#安装与首次使用">安装与使用</a>
-  · <a href="doc/deeming_optimal_configuration_guide.md">配置指南</a>
-  · <a href="PRIVACY.txt">隐私说明</a>
-</p>
-
-谛明常驻系统托盘，使用本地模型完成语音识别，并将结果送回录音开始时绑定的输入位置。它支持离线与流式 ASR、本地 VAD 和自动标点；第三方 LLM 润色及焦点上下文均为可选能力，默认关闭。
-
-**当前稳定版本：** `v2.0.0`　|　**支持系统：** Windows 7+ x64　|　**默认快捷键：** 长按 `CapsLock`
-
-## 下载
-
-### [下载 Deeming-Setup-v2.0.0-x64.exe](https://github.com/beautifulcn/Deeming-VoiceInputMethod/releases/download/v2.0.0/Deeming-Setup-v2.0.0-x64.exe)
-
-[查看全部版本](https://github.com/beautifulcn/Deeming-VoiceInputMethod/releases) · [下载 SHA256SUMS.txt](https://github.com/beautifulcn/Deeming-VoiceInputMethod/releases/download/v2.0.0/SHA256SUMS.txt)
-
-| 项目 | 值 |
-| --- | --- |
-| 文件名 | `Deeming-Setup-v2.0.0-x64.exe` |
-| 文件大小 | 7,244,404 字节（约 6.9 MiB） |
-| SHA-256 | `77A8F142C0FA391886D05DEA0B00417CBFAC7415523419A3F0A0820A1BD5341F` |
-| 产品 / 文件版本 | `2.0.0` / `2.0.0.0` |
-| 支持系统 | Windows 7 或更高版本，x64 |
-
-在 PowerShell 中校验安装包：
-
-```powershell
-(Get-FileHash .\Deeming-Setup-v2.0.0-x64.exe -Algorithm SHA256).Hash
-```
-
-输出应与上表中的 SHA-256 完全一致。当前安装程序尚未使用代码签名证书，Windows 可能显示 SmartScreen 提示；运行前请确认下载地址并核对校验值。
-
 ## 为什么选择谛明
 
 - **本地识别**：FireRedASR2 和 Streaming Paraformer 均在本机运行；安装模型后，无需联网即可完成语音识别。
